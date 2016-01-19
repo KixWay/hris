@@ -1,7 +1,57 @@
-{% extends _layout %}
-
-{% block content %}
-
-    Default template file.
-
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <title>{% block title %}{% endblock %} {% block title_header %} {% endblock %}</title>
+        {% block stylesheets %}
+            {% include 'stylesheets.html.twig' %}
+        {% endblock %}
+        {% block favicon %} 
+            <link rel="icon" type="image/x-icon" href="{{base_url}}{{favicon}}" />
+        {% endblock %}
+    </head>
+    <body class="page-boxed page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo">
+        {% block content %}
+            <!-- BEGIN PAGE HEADER -->
+            {% block topbar %}
+            {% include 'topbar.html.twig' %}
+            {% endblock %}
+            <!-- END PAGE HEADER -->
+            <div class="clearfix"></div>
+            <!-- BEGIN CONTAINER -->
+            <div class="container">
+                <div class="page-container">
+                    <!-- BEGIN SIDEBAR -->
+                    {% block sidebar %}
+                        {% include 'sidebar.html.twig' %}
+                    {% endblock %}
+                    <!-- END SIDEBAR -->
+                    <!-- BEGIN CONTENT -->
+                    {% block pages %}
+                        <!-- Pages / articles will be inserted here @see pages.html.twig -->
+                    {% endblock %}
+                    <!-- END CONTENT -->
+                </div>
+                <!-- END CONTAINER -->
+                <!-- BEGIN FOOTER -->
+                {% block footer %} 
+                    <div class="page-footer">
+                        <div class="page-footer-inner">
+                            2016 &copy; HRIS
+                        </div>
+                        <div class="scroll-to-top">
+                            <i class="icon-arrow-up"></i>
+                        </div>
+                    </div>
+                {% endblock %}
+                <!-- END FOOTER -->
+            </div>
+        {% endblock %}
+    </body>
+    {% block scripts %}
+        {% include 'javascripts.html.twig' %}
+    {% endblock %}
+</html>

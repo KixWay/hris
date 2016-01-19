@@ -17,10 +17,13 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+         public $tplvars = array();
 	public function index()
 	{
 //		$this->load->view('welcome_message');
-            $this->twiggy->template('welcome')->display();
+            $this->tplvars['page'] = 'welcome.html.twig';
+        $this->twiggy->set($this->tplvars);
+            $this->twiggy->display();
 	}
 }
 

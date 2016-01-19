@@ -1,0 +1,40 @@
+{% block stylesheets %}
+{#    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">#}
+    <!-- BEGIN GLOBAL STYLES -->
+    <link href="{{base_url}}assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/global/plugins/animate/css/animate.min.css" rel="stylesheet" type="text/css" />
+    {% block globalstylesheets %}
+        {% if global_styles is defined %}
+            {% for style in global_styles %}
+                <link href="{{base_url}}{{style}}" rel="stylesheet" type="text/css" />
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    <!-- END GLOBAL STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    {% block pagestylesheets %}
+        {% if page_styles is defined %}
+            {% for style in page_styles %}
+                <link href="{{base_url}}{{style}}" rel="stylesheet" type="text/css" />
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="{{base_url}}assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/admin/{{theme}}/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="{{base_url}}assets/admin/{{theme}}/css/themes/default.css" id="style_color" rel="stylesheet" type="text/css" />
+    {% block themestylesheets %}
+        {% if theme_styles is defined %}
+            {% for style in theme_styles %}
+                <link href="{{base_url}}{{style}}" rel="stylesheet" type="text/css" />
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    <!-- END THEME STYLES -->
+{% endblock %}

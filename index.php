@@ -190,6 +190,20 @@ if (defined('ENVIRONMENT'))
 
 		define('APPPATH', BASEPATH.$application_folder.'/');
 	}
+        
+        /* Base URL */
+        /*Define host*/
+        $host = $_SERVER['HTTP_HOST'];
+        /*Set protocol*/
+        $root = isset($_SERVER['HTTPS']) ? 'https://' : 'http://';
+        /*Set host*/
+        $root .= $host;
+        /*Set server name*/
+        /* $_SERVER['SCRIPT_NAME'] is /subdirs/index.php, basename($_SERVER['SCRIPT_NAME'] is index.php -> replace to get subdirs and append to root */
+        $root .= str_replace(basename($_SERVER['SCRIPT_NAME']),'',$_SERVER['SCRIPT_NAME']);
+        $hostname = $root;
+        /*define site name*/
+        define('BASE_URL', $hostname);
 
 /*
  * --------------------------------------------------------------------

@@ -1,0 +1,27 @@
+{% extends 'index.html.twig' %}
+{% block pages %}
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h3 class="page-title">
+                {{page_title}} <small>{{page_description}}</small>
+            </h3>
+            <div class="page-bar">
+                <ul class="page-breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="index.html">Home</a>
+                        <i class="fa fa-angle-right"></i>
+                    </li>
+                </ul>
+            </div>
+            <!-- BEGIN PAGE CONTENT -->
+            <div class="row">
+                <div class="col-md-12">
+                    {% block article %}
+                    {% endblock %}
+                </div>
+            </div>
+            <!-- END PAGE CONTENT -->
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% block scripts %}
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+    <script src="../../assets/global/plugins/respond.min.js"></script>
+    <script src="../../assets/global/plugins/excanvas.min.js"></script> 
+    <![endif]-->
+    <script src="{{base_url}}assets/global/plugins/jquery.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/jquery-migrate.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/jquery.blockui.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/jquery.cokie.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="{{base_url}}assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    {% block coreplugins %}
+        <!-- Core plugins will be inserted here -->
+    {% endblock %}
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="{{base_url}}assets/global/scripts/metronic.js"></script>
+    <script src="{{base_url}}assets/admin/{{theme}}/scripts/layout.js"></script>
+    <script src="{{base_url}}assets/admin/{{theme}}/scripts/demo.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    {% block pageplugins %}
+        <!-- Page level plugins will be inserted here -->
+    {% endblock %}
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    {% block pagescripts %}
+        <!-- Page level scripts will be inserted here -->
+    {% endblock %}
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function() {    
+            Metronic.init(); // init metronic core components
+            Layout.init(); // init current layout
+            Demo.init(); // init demo features
+        });
+    </script>
+{% endblock %}
